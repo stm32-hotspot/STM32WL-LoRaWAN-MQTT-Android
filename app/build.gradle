@@ -1,0 +1,56 @@
+plugins {
+	id 'com.android.application'
+	id 'kotlin-android'
+	id 'kotlin-kapt'
+	id 'kotlin-android-extensions'
+	id 'com.diffplug.spotless'
+}
+
+android {
+	compileSdk 31
+	defaultConfig {
+		applicationId "com.example.mqttdemo"
+		minSdk 21
+		targetSdk 26
+		versionCode 1
+		versionName "1.0.1"
+		testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+	}
+	buildTypes {
+		release {
+			minifyEnabled false
+			proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+		}
+	}
+	buildFeatures {
+		dataBinding true
+	}
+	compileOptions {
+		sourceCompatibility JavaVersion.VERSION_1_8
+		targetCompatibility JavaVersion.VERSION_1_8
+	}
+	kotlinOptions {
+		jvmTarget = '1.8'
+	}
+}
+
+spotless {
+	kotlin {
+		target "**/*.kt", "*.gradle"
+
+		// define the steps to apply to those files
+		trimTrailingWhitespace()
+		indentWithTabs() // or spaces. Takes an integer argument if you don't like 4
+		endWithNewline()
+	}
+}
+
+dependencies {
+	implementation 'com.google.android.material:material:1.4.0'
+	implementation "androidx.core:core-ktx:1.7.0"
+	implementation 'androidx.recyclerview:recyclerview-selection:1.1.0'
+	implementation 'com.google.code.gson:gson:2.8.9'
+	implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0'
+	implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
+	implementation 'com.jakewharton.timber:timber:5.0.1'
+}

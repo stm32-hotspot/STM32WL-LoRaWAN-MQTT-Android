@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">MQTT Demo</string>
+    <string name="name">Name</string>
+    <string name="host_uri">Host URI</string>
+    <string name="port">Port</string>
+    <string name="user_name">User Name</string>
+    <string name="password">Password</string>
+    <string name="connect">Connect</string>
+    <string name="title">Title</string>
+    <string name="data">10.00</string>
+    <string name="unit">Unit</string>
+    <string-array name="uris">
+        <item>nam1.cloud.thethings.network:1883</item>
+        <item>eu1.cloud.thethings.network:1883</item>
+        <item>au1.cloud.thethings.network:1883</item>
+    </string-array>
+    <string name="device_id">Device ID</string>
+    <string name="add">Add</string>
+    <string name="send">Send</string>
+    <string name="message">Message</string>
+    <string name="device">Device:</string>
+    <string name="arrow">Arrow</string>
+    <string name="settings">Settings</string>
+</resources>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="sensorItem"
+            type="com.example.mqttdemo.view.dashboard.sensor.SensorItem" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        app:cardCornerRadius="4dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp">
+
+            <ImageView
+                android:id="@+id/iconImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:src="@drawable/ic_cold"
+                app:imageLoad="@{sensorItem.iconResource}"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="12dp"
+                app:layout_constraintStart_toEndOf="@id/iconImage"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_toEndOf="@+id/iconImage"
+                android:text="@{sensorItem.title}"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                tools:text="title"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/dataText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="12dp"
+                tools:text="data"
+                app:layout_constraintStart_toEndOf="@id/titleText"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_toEndOf="@+id/titleText"
+                android:text="@{Float.toString(sensorItem.dataValue)}"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/unitText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="12dp"
+                tools:text="unit"
+                app:layout_constraintStart_toEndOf="@id/dataText"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/settingsButton"
+                android:layout_toEndOf="@+id/dataText"
+                android:text="@{sensorItem.unit}"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/settingsButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:padding="2dp"
+                android:src="@drawable/ic_settings"
+                tools:ignore="SpeakableTextPresentCheck"
+                android:contentDescription="@string/settings" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
